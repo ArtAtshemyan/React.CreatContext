@@ -1,0 +1,11 @@
+.userBlock {
+    width: 48%;
+    height: 80%;
+    margin: auto;
+    background-color: rgba(80, 252, 90, 0.86);
+    border-radius: 20px;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
