@@ -5,9 +5,9 @@ import {ShowInfo} from "../App";
 
 function About ()   {
     const userInfo = useContext(ShowInfo)
+    console.log(userInfo.sateInput);
     return (
-        (userInfo.name?<UserComponent/>:null)
+        (userInfo.sateInput===true?<UserComponent/>:null)
     );
 }
-
 export default About;

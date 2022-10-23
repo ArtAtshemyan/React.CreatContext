@@ -3,7 +3,7 @@ import {ShowInfo} from "../App";
 import './css/userComponents.css'
 
 function UserComponent (){
-    let value = useContext(ShowInfo)
+    let value = useContext(ShowInfo);
     return (
         <div className='userBlock'>
             <div className='userList'>

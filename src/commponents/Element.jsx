@@ -1,4 +1,4 @@
-import React, {useContext,  useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {ShowInfo} from "../App";
 import './css/element.css';
 import background from './css/img/formBacgundImg.jpg'
@@ -8,11 +8,15 @@ function Element () {
     const [surname,setSurname] = useState('');
     const [email,setEmail] = useState('');
     const [age,setAge] = useState('');
+    const [inputs,setInputs] = useState(false);
+    useEffect(()=>{
+        createInfoBase.setSateInput(inputs);
+    },[inputs])
     return(
         <div className='formBlock' style={{ backgroundImage: `url(${background})` }}>
             <form>
                 <label>Name</label>
-                <input placeholder='Franc' className='inputName' value={inputName} onChange={(e)=>{setName(e.target.value)}}/>
+                <input placeholder='Franc' onFocus={()=>{setInputs(false)}} className='inputName' value={inputName} onChange={(e)=>{setName(e.target.value)}}/>
                 <label>Sure Name</label>
                 <input placeholder='Backembouer' className='inputName' value={surname} onChange={(e)=>{setSurname(e.target.value)}}/>
                 <label>Email</label>
@@ -22,6 +26,7 @@ function Element () {
                 <button onClick={(e)=>{
                     e.preventDefault()
                     if (inputName && surname && email && age){
+                        setInputs(true);
                         createInfoBase.setName(inputName);
                         createInfoBase.setSurname(surname);
                         createInfoBase.setEmail(email);
@@ -36,6 +41,5 @@ function Element () {
         </div>
 
     )
-
 }
 export default Element;
